@@ -1,0 +1,27 @@
+
+x = randperm(9);
+x = x(1:9);
+
+p = [x];
+
+
+
+inversions = 0;
+for a = numel(p):-1:2
+  b = find(a==p);
+  inversions = inversions + a -b;
+  p(b) = [];
+end
+  if rem(inversions,2) == 0
+      disp ('solvable  ')
+  else disp('not solvable')
+
+ 
+end
+disp('                  ')
+disp('slide puzzle:')         
+disp(reshape(x-1,3,3)')
+disp('inversions')
+disp(inversions)
+
+
