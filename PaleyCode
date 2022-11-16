@@ -1,0 +1,24 @@
+% function generate_hist
+function generate_hist
+puzzle_size = 3;
+rng(2);
+final = generate_random_puzzle(puzzle_size);
+numtrials = 100;
+list_times = [];
+list_nummoves = [];
+for ii = 1:numtrials,
+    initial = generate_random_puzzle;
+    tic
+    [solvable,nummoves] = solve_puzzle(initial,final);
+    t = toc;
+    list_times = [list_of_times,t];
+    list_nummoves = [list_of_nummoves,nummoves];
+end
+
+hist(list_times,10)
+hist(list_nummoves)
+
+%%%%%%%%%%%%%%%%%
+puzzle = function generate_random_puzzle(puzzle_size)
+% TODO
+
